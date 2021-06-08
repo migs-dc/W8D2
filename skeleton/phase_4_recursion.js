@@ -48,8 +48,26 @@ function fibonacci(n){
   return sequence;
 }
 
+// # accidental flatten
+// function deepDup(arr){  
+//   if(!Array.isArray(arr)){
+//     return [arr];
+//   }
+//   if(arr.length === 0){
+//     return [];
+//   }
+
+//   return deepDup(arr[0]).concat(deepDup(arr.slice(1,arr.length)));
+// }
+
 function deepDup(arr){
-  if(typeof arr == "Array")
-  
-  return arr
+  let result = [];
+  arr.forEach(function(ele){
+    if(!Array.isArray(ele)){
+      result.push(ele);
+    } else {
+      result.push(deepDup(ele));
+    }
+  })
+  return result;
 }
