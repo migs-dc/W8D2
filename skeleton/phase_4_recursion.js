@@ -49,5 +49,7 @@ function fibonacci(n){
 }
 
 function deepDup(arr){
+  if(typeof arr == "Array")
   
+  return arr
 }
