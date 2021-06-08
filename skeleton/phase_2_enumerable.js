@@ -16,3 +16,13 @@ Array.prototype.myMap = function(dolphin){
 
   return result;
 }
+
+Array.prototype.myReduce = function(callback, initialValue){
+  if(typeof initialValue === 'undefined'){
+    initialValue = this[0]
+  };
+
+  let result = initialValue;
+
+  this.myEach(callBack);
+}
