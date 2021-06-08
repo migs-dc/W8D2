@@ -18,11 +18,24 @@ Array.prototype.myMap = function(dolphin){
 }
 
 Array.prototype.myReduce = function(callback, initialValue){
+  let receivedInitialValue = true;
   if(typeof initialValue === 'undefined'){
-    initialValue = this[0]
+    initialValue = this[0];
+    receivedInitialValue = false;
   };
 
   let result = initialValue;
 
-  this.myEach(callBack);
+  function closure(arg){
+    result = callback(result, arg);
+  }
+
+  if(receivedInitialValue){
+    this.myEach(closure);    
+  }
+  else{
+    this.slice(1,this.length).myEach(closure);
+  }
+
+  return result;
 }
