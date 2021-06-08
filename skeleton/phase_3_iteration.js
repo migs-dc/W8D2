@@ -12,3 +12,15 @@ Array.prototype.bubbleSort = function(){
   }
   return this;
 }
+
+String.prototype.substrings = function(){
+  let result = [];
+
+  for(let x = 0; x < this.length; x++){
+    for(let y = x; y < this.length; y++){
+      result.push(this.substring(x, y + 1));
+    }
+  }
+
+  return result;
+}
